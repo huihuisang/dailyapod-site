@@ -60,6 +60,19 @@ a { color: inherit; }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
+.by-ajigu {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.by-ajigu img { width: 20px; height: 20px; border-radius: 50%; }
+.by-ajigu:hover { color: var(--ink); }
+
 .nav { display: flex; align-items: center; gap: 24px; height: 60px; }
 .brand {
   display: flex; align-items: center; gap: 10px;
