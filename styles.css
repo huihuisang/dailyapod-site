@@ -187,3 +187,42 @@ h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.1; letter-spacing: -.
   .nav-links { display: none; }
   .by-ajigu { margin-right: 0; font-size: 0; gap: 0; }
 }
+
+/* Motion */
+:root { --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+}
+
+.hero > * { animation: rise 0.6s var(--ease-out-strong) both; }
+.hero > .hero-art { animation-delay: 0.12s; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease-out-strong), transform 0.6s var(--ease-out-strong);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@keyframes float {
+  to { transform: translateY(-10px); }
+}
+.phone { animation: float 6s ease-in-out infinite alternate; }
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-card {
+    transition: transform 0.25s var(--ease-out-strong), box-shadow 0.25s var(--ease-out-strong), border-color 0.25s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+    box-shadow: 0 12px 32px rgba(139, 124, 246, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > *, .phone { animation: none; }
+  .reveal { transition: opacity 0.2s ease; transform: none; }
+  .feature-card:hover { transform: none; }
+}
